@@ -1,0 +1,78 @@
+Bitnami
+=======
+Install Bitnami.
+
+In Windows, in Environment variables (user variables)
+add PATH 
+		C:\Bitnami\wampstack-7.1.20-1\php
+		or
+		C:\Bitnami\wampstack-5.6.33-0\php
+		depends on version...
+
+
+
+To know php version or information, in command prompt, type:
+	php -i
+	or
+	php -v
+	
+
+"Symfony installer" helps you to create your first application.
+Make sure symfony.bat in this path:
+	C:\Bitnami\wampstack-5.6.33-0\php\symfony.bat
+	Or
+	Get the "symfony installer", by typing this in command prompt:
+		cd C:\Bitnami\wampstack-5.6.33-0\php\
+		php -r "file_put_contents('symfony', file_get_contents('https://symfony.com/installer'));"
+
+	
+PHP
+===
+Create your first application in command prompt (use symfony, better than using composer to create application).
+
+	symfony new my_project_name 3.4
+
+Run the project on console:
+	php bin/console server:run
+    Browse to the http://localhost:8000 URL.
+	
+Composer
+========
+"Composer" is a package manager for PHP
+	Download the exe from https://getcomposer.org/Composer-Setup.exe
+
+In command prompt, to create a project using composer:
+	composer create-project symfony/framework-standard-edition my_project_name "3.4.*"
+	
+IDE
+===
+Best IDE is PHPStorm
+
+Install symfony plugin
+	File > Settings > Plugins
+	Search "Symfony plugin"
+Restart PHPStorm
+
+
+File > Settings > Language & Frameworks > PHP > Symfony
+	Mark checkbox 'Enable Plugins for this project..."
+	Translation Root Path: var/cache/dev/translations
+	App Directory: var
+
+----------------------------------------------------------------------------------------------------
+
+Remove the default page:
+	\src\AppBundle\Controller\DefaultController.php
+	
+Once the IDE is opened:	
+	Exclude cache directory, to have autocompletion work properly.
+	
+To check what version of symfony your project is using:
+In command prompt:
+	php bin/console --version
+
+If you download the source code, you might have to install the dependencies using Composer:
+In command prompt:
+	composer install
+
+===

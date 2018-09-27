@@ -1,0 +1,87 @@
+To create a webpage, you need to do 2 things:
+=============================================
+
+i) Route
+	A route is a url (e.g. /about)
+	The url points to a controller.
+	
+ii) Controller
+	Controller, just a bunch of functions to build a webpage
+	Basically gets incoming request, and creates a response object (HTML)
+	
+Video tutorials: https://knpuniversity.com/screencast/symfony3
+
+2 important folders:
+	app/
+		Typically configuration files resides here.
+
+	src/
+		All your source codes resides here.
+		
+Run in the project on console:
+	php bin/console server:run
+    Browse to the http://localhost:8000 URL.
+	
+
+Run a built-in PHP web server
+=============================
+In command prompt:
+	php bin/console server:run      #valid in Symfony 3
+
+	php app/console server:run      #valid in Symfony 2
+	
+	
+php bin/console has many commands.
+In command prompt, type:
+	php bin/console
+It shows a list of commands...for debugging, for clearing cache, etc.
+
+To list all the routes:
+	php bin/console debug:router
+	
+
+Useful terms; in symfony, the word "service" means a useful object or library. 
+E.g. a library to send email, or a library to log something, or templating library (twig)
+All these libraries are in a container (which is also an object actually)
+	
+PHPStorm IDE
+============
+Project explorer > var > cache > right-click > Mark directory as excluded.
+to make autocompletion works properly.
+
+To list all the 'services':
+	php bin/console debug:container
+	
+Twig (template engine) 
+======================
+In HTML twig template...
+	Syntax:
+		{{  }}   print some text
+		{%  %}   do something
+		{#  #}   remarks or comments
+		{{ dump() }}   shows all the variables
+
+In php files, you can use this dump($variableName)
+---------------------------------------------------------------------------------------------
+
+<?php
+
+namespace AppBundle\Controller;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+
+class GenusController extends Controller
+{
+
+    /**
+     * @Route("/genus/{genusName}")
+     */
+    public function showAction($genusName)
+    {
+        return $this->render('genus/show.html.twig', ['name'=> $genusName]);
+
+    }
+
+}
+	
+---------------------------------------------------------------------------------------------

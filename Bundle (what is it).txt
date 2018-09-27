@@ -1,0 +1,20 @@
+app/AppKernel.php -- loads or initializes all the "bundles" (basically Bundle = Library. It's just a bunch of PHP classes with configurations)
+Example:
+	new Doctrine\Bundle\DoctrineBundle\DoctrineBundle()
+
+A bundle provides 'services'
+
+Install a "Bundle"
+==================
+Downloading a new bundle, in command prompt:
+	composer require knplabs/knp-markdown-bundle
+
+You might see a memory limit error, so edit php.ini:
+	memory_limit = -1
+
+Edit app/AppKernel.php
+	new Knp\Bundle\MarkdownBundle\KnpMarkdownBundle(),
+
+
+Check if the service is available in command prompt:
+	php bin/console debug:container markdown

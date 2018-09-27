@@ -1,0 +1,53 @@
+
+Edit the database connections:
+	\app\config\parameters.yml
+
+Create a bundle first (or you can use an existing bundle?) in command prompt:
+	php bin/console generate:bundle
+		
+Edit composer.json:
+	"autoload": {
+		"psr-4": {
+			"AppBundle\\": "src/AppBundle",
+			"NEWBUNDLENAME\\": "src/NEWBUNDLENAME"
+		}
+		
+Go to command prompt:
+	composer dump-autoload 
+	
+
+Go to command prompt to create entity class:
+	php bin/console generate:doctrine:entity
+	
+Go to command prompt to create php and twig files:
+	php bin/console generate:doctrine:crud
+	
+			Magic! ha ha!
+			  CRUD generation
+
+
+			  created .\src\BlogBundle/Controller//PostController.php
+			  created .\app/Resources/views/post/
+			  created .\app/Resources/views/post/index.html.twig
+			  created .\app/Resources/views/post/show.html.twig
+			  created .\app/Resources/views/post/new.html.twig
+			  created .\app/Resources/views/post/edit.html.twig
+			  created .\src\BlogBundle/Tests/Controller/
+			  created .\src\BlogBundle/Tests/Controller//PostControllerTest.php
+			Generating the CRUD code: OK
+			  created .\src\BlogBundle/Form/
+			  created .\src\BlogBundle/Form/PostType.php
+			Generating the Form code: OK
+			Updating the routing: OK
+
+
+			  Everything is OK! Now get to work :).
+
+
+Finally create table/columns via command prompt:
+	php bin/console doctrine:schema:update --force
+	
+And we can see all the available routes:
+	php bin/console debug:router
+	
+	

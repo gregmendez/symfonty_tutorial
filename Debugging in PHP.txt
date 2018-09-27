@@ -1,0 +1,62 @@
+A typically (or old) way to debug PHP is using var_dump().
+
+xdebug "client" (php) ------ Hello?  --> xdebug "server" (IDE like PHPStorm)
+xdebug "client" (php) <-- breakpoint --- xdebug "server" (IDE like PHPStorm)
+
+
+WARNING: DO NOT USE XDEBUG IN PRODUCTION ENVIRONMENT
+
+
+Check if xdebug.dll is loaded
+=============================
+In command prompt, type:
+		php -v
+		
+You might see 
+	"with Xdebug v2.4.0 ... ... "
+
+	
+Interesting commands to type in command prompt
+==============================================
+
+PHP Configuration, type this:
+	php --ini
+
+phpinfo, type this:
+	php -i
+	
+
+	
+How to install xdebug
+======================
+
+Better to visit http://xdebug.org and read the installation.
+
+Or...
+
+For PHP 5.6.33:
+
+	Copy "php_xdebug-2.4.0-5.6-vc11-x86_64" to \php\ext\ folder.
+
+	Edit \php\php.ini and look for [XDebug] section.
+	Remember to remove remarks (semicolon) for xdebug.
+	Also specify the correct path of the xdebug dll:
+		zend_extension="C:/Bitnami/wampstack-5.6.33-0/php\ext\php_xdebug-2.4.0-5.6-vc11-x86_64.dll"
+
+	Restart Apache.
+
+
+How to use
+===========	
+
+In PHPStorm, turn on “Start Listening for PHP Debug Connections” button (top right).
+
+Mark a breakpoint on your code.
+
+Get & install Chrome extension: 'Xdebug Helper' 
+
+Go to your site and turn on debug on Chrome toolbar:
+	http://localhost:91/genus/greg
+
+Details:
+	https://confluence.jetbrains.com/display/PhpStorm/Zero-configuration+Web+Application+Debugging+with+Xdebug+and+PhpStorm

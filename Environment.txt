@@ -1,0 +1,16 @@
+
+
+http://10.77.2.203:8080/app_dev.php
+http://10.77.2.203:8080/app_dev.php/login
+Development environment. Comes with tool bar, for debugging. AWESOME!!
+
+
+http://10.77.2.203:8080/app.php
+Equals to http://10.77.2.203:8080/login
+Production environment.
+
+
+app_dev.php and app.php are in \web directory.
+
+
+

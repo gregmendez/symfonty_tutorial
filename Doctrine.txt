@@ -1,0 +1,18 @@
+
+You class will be in this folder:
+	\src\AppBundle\Entity
+	
+A class represents table and the properties represents the fields of the table.
+
+
+To create a database in command prompt:
+	php bin/console doctrine:database:create
+
+Show the sql string on command prompt:
+	php bin/console doctrine:schema:update --dump-sql
+	
+To create table:
+	php bin/console doctrine:schema:update --force
+	
+To alter add a column, you edit the class file in \Entity folder, then run a php command (above).
+
