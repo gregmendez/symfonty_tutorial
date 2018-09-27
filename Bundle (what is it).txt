@@ -4,6 +4,9 @@ Example:
 
 A bundle provides 'services'
 
+And a container, contains many bundles
+$funFact = $this->container->get('markdown.parser')->transform($funFact);
+
 Install a "Bundle"
 ==================
 Downloading a new bundle, in command prompt:
